@@ -89,4 +89,4 @@ Console.WriteLine($"y={y:F2}");
 //        Console.WriteLine("Такой операции нет!");
 //        break;
 //}
-//PrintPerson("Голубок", 140);
+//PrintPerson("Tom",34);
