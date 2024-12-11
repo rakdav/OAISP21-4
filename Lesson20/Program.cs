@@ -5,12 +5,12 @@ double w = double.Parse(Console.ReadLine());
 Console.Write("Введите высоту:");
 double h = double.Parse(Console.ReadLine());
 Rectangle rectangle = new Rectangle(name,w,h);
-Console.WriteLine($"Площадь:{rectangle.Width}X{rectangle.Width}={rectangle.GetArea():F2}");
+Console.WriteLine($"Площадь:{rectangle.Width}X{rectangle.Height}={rectangle.GetArea():F2}");
 Console.WriteLine($"Периметр:2*({rectangle.Width}+{rectangle.Height})={rectangle.GetPerimetr():F2}");
 Console.WriteLine("Введите новую ширину:");
 w = double.Parse(Console.ReadLine());
 rectangle.Width=w;
-Console.WriteLine($"Площадь:{rectangle.Width}X{rectangle.Width}={rectangle.GetArea():F2}");
+Console.WriteLine($"Площадь:{rectangle.Width}X{rectangle.Height}={rectangle.GetArea():F2}");
 Console.WriteLine($"Периметр:2*({rectangle.Width}+{rectangle.Height})={rectangle.GetPerimetr():F2}");
 
 //class Rectangle
