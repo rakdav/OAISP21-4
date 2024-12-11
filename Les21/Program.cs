@@ -1,6 +1,16 @@
-﻿Console.Write("Введите длину ");
+﻿Console.Write("Введите длину прямоугольника:");
+double height = double.Parse(Console.ReadLine());
+Console.Write("Введите ширину прямоугольника:");
+double width = double.Parse(Console.ReadLine());
+Triangle triangle = new Triangle("Прямоугольник",width, height);
+triangle.Print();
+Console.Write("Введите высоту призмы:");
+double length = double.Parse(Console.ReadLine());
+Prizma prizma = new Prizma("Призма",width, height, length);
+prizma.Print();
 class Triangle
 {
+    public string Name { get; set; }
     private double width;
     public double Width
     {
@@ -14,13 +24,16 @@ class Triangle
         get => height;
         set { if (value > 0) height = value; }
     }
-    public Triangle(double width, double height)
+    public Triangle(string name,double width, double height)
     {
+        Name = name;
         Width = width;
         Height = height;
     }
     public double GetArea() => width * height;
     public double GetPerimetr() => 2 * (width + height);
+    public void Print() => Console.WriteLine($"{Name}.Ширина:{Width} м, длина:{Height} м," +
+        $" площадь:{GetArea():F2} кв.м, периметр:{GetPerimetr():F2} м");
 }
 class Prizma : Triangle
 {
@@ -30,7 +43,8 @@ class Prizma : Triangle
         get => length;
         set { if (value > 0) length = value; }
     }
-    public Prizma(double width, double height,double length):base(width,height)
+    public Prizma(string name, double width, double height,double length):
+        base(name,width,height)
     {
         Length = length;
     }
@@ -42,4 +56,6 @@ class Prizma : Triangle
     {
         return 2 * base.GetPerimetr() + 4 * Length * (Width + Height);
     }
+    public new void Print() => Console.WriteLine($"{Name}.Ширина:{Width} м, длина:{Height} м," +
+        $" высота:{Length} м, площадь:{GetArea():F2} кв.м, периметр:{GetPerimetr():F2} м");
 }
